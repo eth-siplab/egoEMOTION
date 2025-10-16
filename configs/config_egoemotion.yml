@@ -1,0 +1,35 @@
+# Configurations for general of video and bio-signals of egoPPG dataset
+
+# General parameters
+original_data_path: '/local/home/bjbraun/Datasets/SynchronizedData/egoEMOTION' # INSERT PATH TO THE DATASET PROVIDED IN THE PAPER
+preprocessed_data_path: '/local/home/bjbraun/Datasets/PreprocessedData/egoEMOTION' # INSERT PATH TO WHERE THE FEATURES SHOULD BE SAVED
+fs_all: {'et': 90, 'rgb': 10, 'imu_right': 1000, 'ecg': 1024, 'eda': 256, 'ppg_nose': 128, 'rr': 400, 'gaze': 90,
+         'pupils': 90, 'intensity': 90, 'lbptop': 9}
+
+# Define personality and emotions
+personality_domains: ["Extraversion","Agreeableness", "Conscientiousness","Negative Emotionality",
+                      "Open-Mindedness"]
+emotion_domains: ['Amused', 'Content', 'Excited', 'Awe', 'Neutral', 'Fear', 'Sad', 'Disgust', 'Anger']
+
+pupils_side_to_use: {
+  '009': 1,
+  '017': 0,
+  '018': 1,
+  '019': 1,
+  '025': 1,
+  '037': 1,
+  '039': 1,
+  '044': 0,
+  '045': 0
+}
+
+sensors_to_exclude : {
+  '010': ['pupils'],
+  '032': ['pupils'],
+  '039': ['pupils'],
+  '046': ['pupils']
+}
+
+sensors_missing : {
+  '004': ["eda"]
+}

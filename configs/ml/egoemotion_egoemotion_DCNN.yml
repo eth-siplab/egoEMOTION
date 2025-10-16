@@ -1,0 +1,17 @@
+# Paths
+log_path: '/local/home/bjbraun/Projects/egoEMOTION/runs'
+pretrained_model_path: '/local/home/bjbraun/Projects/egoEMOTION/pretrained_models'
+
+# Training options
+mode: 'train_and_test'  # 'train_and_test' or 'only_test'
+device: 'cuda:7'  # 'cuda:X' or 'cpu'
+name_extension: ''
+num_epochs: 30
+batch_size: 128
+lr: 0.0001
+best_epoch: Null
+
+# Optimizer options
+optim: 'adam'  # adam or sgd
+momentum: 0.9
+weight_decay: 0.0000005
