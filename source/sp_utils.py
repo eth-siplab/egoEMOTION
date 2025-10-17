@@ -2,7 +2,7 @@ import numpy as np
 from PyEMD import EMD
 from scipy.signal import butter, lfilter, filtfilt, welch, find_peaks
 
-from source.utils import normalize
+from utils import normalize
 
 
 def fisher_idx(num, features, labels):

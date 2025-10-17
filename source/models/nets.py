@@ -11,7 +11,7 @@ from torch import nn, Tensor
 from torch.nn import functional as F
 from torch.nn.modules import MultiheadAttention, Linear, Dropout, BatchNorm1d, TransformerEncoderLayer
 
-from source.models.tcn import TemporalConvNet
+from models.tcn import TemporalConvNet
 
 
 class TransformerBatchNormEncoderLayer(nn.modules.Module):

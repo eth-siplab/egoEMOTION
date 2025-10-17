@@ -37,25 +37,34 @@ At the moment, you can choose between different options for:
 3) The prediction target: continuous affect (arousal, valence, dominance), discrete emotions, or personality.
 4) Choose the input modalities: ECG, EDA, RR, Pupils, IMU from the head, pixel intensity, Fisherfaces, micro-expressions, gaze, and nose PPG. You can flexibly combine these modalities.
 
-You only have to run the feature calculation once at the beginning and can then specify to use the pre-calculated features. Depending on your setup, mind to specify how many processes to use for the feature calculation.
+The AffectivePredictor class in *source/AffectivePredictor.py* contains all the methods for training and evaluating the models (deep learning-based and signal processing-based). The feature extraction methods are implemented in *source/sp_feature_calculation.py*. The deep learning architectures are implemented in *source/models/*.
 
 ## :zap: Training and inference
+To run the *main.py* file, go the source folder and then simply run:
+
+```
+python -m main.py
+```
+All the variables are set in the *main.py* file and the configs chosen in the paper are also specified there.
+
+#### Important configs
+- *do_new_feature_extraction*: If set to True, features are calculated from the raw data. If set to False, pre-calculated features are loaded. You only have to run this once at the beginning.
+- *do_new_fisherface_extraction*: This is specified similarly to the feature extraction but for the Fisherface features (takes longer to compute).
 
 ## :bar_chart: Results for egoEMOTION
-| **Benchmark** | **Model** | **Wearable Devices** | **Egocentric Glasses** | **All** |
-|----------------|-----------|:--------------------:|:----------------------:|:-------:|
-| **Continuous Affect** | Classical | 0.70 ± 0.14 | 0.74 ± 0.13 | 0.75 ± 0.13 |
-|  | DCNN ([Ref](#)) | 0.63 ± 0.05 | 0.68 ± 0.05 | 0.68 ± 0.07 |
-|  | WER ([Ref](#)) | 0.49 ± 0.21 | 0.65 ± 0.11 | 0.60 ± 0.16 |
-| **Discrete Emotions** | Classical | 0.28 ± 0.08 | 0.52 ± 0.18 | 0.45 ± 0.17 |
-|  | DCNN ([Ref](#)) | 0.12 ± 0.01 | 0.23 ± 0.03 | 0.22 ± 0.02 |
-|  | WER ([Ref](#)) | 0.13 ± 0.02 | 0.22 ± 0.03 | 0.21 ± 0.04 |
-| **Personality Traits** | Classical | 0.50 ± 0.48 | 0.57 ± 0.49 | 0.59 ± 0.49 |
-|  | DCNN ([Ref](#)) | 0.43 ± 0.26 | 0.42 ± 0.20 | 0.41 ± 0.25 |
-|  | WER ([Ref](#)) | 0.38 ± 0.28 | 0.47 ± 0.24 | 0.44 ± 0.28 |
+| **Benchmark** | **Model**                                                         | **Wearable Devices** | **Egocentric Glasses** | **All** |
+|----------------|-------------------------------------------------------------------|:--------------------:|:----------------------:|:-------:|
+| **Continuous Affect** | Classical                                                         | 0.70 ± 0.14 | 0.74 ± 0.13 | 0.75 ± 0.13 |
+|  | DCNN [[1](https://ieeexplore.ieee.org/abstract/document/8543567)] | 0.63 ± 0.05 | 0.68 ± 0.05 | 0.68 ± 0.07 |
+|  | WER [[2](https://ieeexplore.ieee.org/abstract/document/10091193)]  | 0.49 ± 0.21 | 0.65 ± 0.11 | 0.60 ± 0.16 |
+| **Discrete Emotions** | Classical                                                         | 0.28 ± 0.08 | 0.52 ± 0.18 | 0.45 ± 0.17 |
+|  | DCNN [[1](https://ieeexplore.ieee.org/abstract/document/8543567)] | 0.12 ± 0.01 | 0.23 ± 0.03 | 0.22 ± 0.02 |
+|  | WER [[2](https://ieeexplore.ieee.org/abstract/document/10091193)]                                                 | 0.13 ± 0.02 | 0.22 ± 0.03 | 0.21 ± 0.04 |
+| **Personality Traits** | Classical                                                         | 0.50 ± 0.48 | 0.57 ± 0.49 | 0.59 ± 0.49 |
+|  | DCNN [[1](https://ieeexplore.ieee.org/abstract/document/8543567)] | 0.43 ± 0.26 | 0.42 ± 0.20 | 0.41 ± 0.25 |
+|  | WER [[2](https://ieeexplore.ieee.org/abstract/document/10091193)]                                                    | 0.38 ± 0.28 | 0.47 ± 0.24 | 0.44 ± 0.28 |
 
 > **Table:** Performance comparison between classical and deep learning approaches on the egoEMOTION dataset.
-
 
 ## :scroll: Citation
 If you find our paper, code or dataset useful for your research, please cite our work.
@@ -65,6 +74,6 @@ TBD
 ```
 
 ## :heartbeat: :eye: egoPPG
-Make sure to also check out [egoPPG](https://github.com/eth-siplab/egoPPG).
-*egoPPG* is a novel vision task for egocentric vision systems to recover a person’s cardiac activity only from the eye tracking videos of egocentric systems to aid downstream vision tasks.
-We demonstrate egoPPG’s downstream benefit for a key task on EgoExo4D, aexisting egocentric dataset for which we find PulseFormer’s estimates of HR to improve proficiency estimation by 14%.
+Make sure to also check out our work [egoPPG](https://github.com/eth-siplab/egoPPG).
+*egoPPG* is a novel vision task for egocentric vision systems to recover a person’s cardiac activity only from the eye tracking videos of egocentric systems.
+We demonstrate egoPPG’s downstream benefit for a key task on EgoExo4D, an existing egocentric dataset for which we find PulseFormer’s estimates of HR to improve proficiency estimation by 14%.
