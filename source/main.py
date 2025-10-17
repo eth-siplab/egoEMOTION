@@ -46,11 +46,11 @@ def main():
 
     # Parameters on how to run the analysis
     n_jobs = len(participants)
-    do_new_feature_extraction = True
+    do_new_feature_extraction = False
     do_new_fisherface_extraction = False  # specified separately since it takes long
-    chunk_len = 20  # 'all', 'last_30', X (int in seconds): 20 was used for DL methods in the paper
+    chunk_len = 'all'  # 'all', 'last_30', X (int in seconds): 20 was used for DL methods in the paper
     per_session_scaling = True
-    splitter_name = 'GKF'  # LOGO or GKF (used for DL methods in the paper)
+    splitter_name = 'LOGO'  # LOGO or GKF (used for DL methods in the paper)
     feature_modalities_list = [['ecg'], ['eda'], ['rr'], ['ecg', 'eda', 'rr'],
                                ['pupils'], ['ppg_nose'], ['imu_right'], ['intensity'], ['fisherfaces'], ['gaze'],
                                ['lbptop'],
