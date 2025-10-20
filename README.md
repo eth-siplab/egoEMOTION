@@ -18,8 +18,6 @@ To download the dataset, please visit the following link: [egoEMOTION Dataset](h
 
 You have to sign a Data Transfer and Use Agreement (DTUA) form to agree to our terms of use. Please note that only members of an institution (e.g., a PI or professor) can sign this DTUA. After you have signed the DTUA, you will receive a download link via email. The dataset is around 380GB in size. The dataset is only for non-commercial, academic research purposes.
 
-![Overview](assets/Figure_1_Sensors.png)
-
 ## :wrench: Setup
 
 To create the environment that we used for our paper, simply run: 
