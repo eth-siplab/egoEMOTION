@@ -5,7 +5,7 @@
 
 [Sensing, Interaction & Perception Lab](https://siplab.org), Department of Computer Science, ETH Zürich, Switzerland <br/>
 
-DISCLAIMER: PRELIMINARY CODE VERSION. FINAL VERSION WILL FOLLOW SOON.
+**DISCLAIMER: THIS IS A PRELIMINARY CODE VERSION. THE FINAL VERSION WILL BE RELEASED SOON.**
 
 ## 👓🎭 egoEMOTION
 *egoEMOTION* is the first dataset that couples egocentric visual and physiological signals with dense self-reports of emotion and personality across controlled and real-world scenarios. Participants completed emotion-elicitation tasks and naturalistic activities while self-reporting their affective state using the Circumplex Model and Mikels’ Wheel as well as their personality via the Big Five model. 
