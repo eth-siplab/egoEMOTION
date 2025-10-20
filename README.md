@@ -72,6 +72,5 @@ TBD
 ```
 
 ## 👓💓 egoPPG
-Make sure to also check out our work [egoPPG](https://github.com/eth-siplab/egoPPG).
-*egoPPG* is a novel vision task for egocentric vision systems to recover a person’s cardiac activity only from the eye tracking videos of egocentric systems.
+Make sure to also check out our work [egoPPG](https://github.com/eth-siplab/egoPPG), a novel vision task for egocentric vision systems to recover a person’s cardiac activity only from the eye tracking videos of egocentric systems.
 We demonstrate egoPPG’s downstream benefit for a key task on EgoExo4D, an existing egocentric dataset for which we find PulseFormer’s estimates of HR to improve proficiency estimation by 14%.
