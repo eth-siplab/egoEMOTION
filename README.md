@@ -69,10 +69,15 @@ All the variables are set in the *main.py* file and the configs chosen in the pa
 > **Table:** Performance comparison between classical and deep learning approaches on the egoEMOTION dataset.
 
 ## :scroll: Citation
-If you find our paper, code or dataset useful for your research, please cite our work.
+If you find our [paper](https://arxiv.org/abs/2510.22129), code or dataset useful for your research, please cite our work.
 
 ```
-TBD
+@article{jammot2025egoemotion,
+  title={egoEMOTION: Egocentric Vision and Physiological Signals for Emotion and Personality Recognition in Real-World Tasks},
+  author={Jammot, Matthias and Braun, Bj{\"o}rn and Streli, Paul and Wampfler, Rafael and Holz, Christian},
+  journal={arXiv preprint arXiv:2510.22129},
+  year={2025}
+}
 ```
 
 ## 👓💓 egoPPG
