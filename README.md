@@ -59,7 +59,7 @@ All the variables are set in the *main.py* file and the configs chosen in the pa
 | **Continuous Affect** | Classical                                                         | 0.70 ± 0.14 | 0.74 ± 0.13 | 0.75 ± 0.13 |
 |  | DCNN [[1](https://ieeexplore.ieee.org/abstract/document/8543567)] | 0.63 ± 0.05 | 0.68 ± 0.05 | 0.68 ± 0.07 |
 |  | WER [[2](https://ieeexplore.ieee.org/abstract/document/10091193)]  | 0.49 ± 0.21 | 0.65 ± 0.11 | 0.60 ± 0.16 |
-| **Discrete Emotions** | Classical                                                         | 0.28 ± 0.08 | 0.52 ± 0.18 | 0.45 ± 0.17 |
+| **Discrete Emotions** | Classical                                                         | 0.24 ± 0.08 | 0.46 ± 0.18 | 0.46 ± 0.17 |
 |  | DCNN [[1](https://ieeexplore.ieee.org/abstract/document/8543567)] | 0.12 ± 0.01 | 0.23 ± 0.03 | 0.22 ± 0.02 |
 |  | WER [[2](https://ieeexplore.ieee.org/abstract/document/10091193)]                                                 | 0.13 ± 0.02 | 0.22 ± 0.03 | 0.21 ± 0.04 |
 | **Personality Traits** | Classical                                                         | 0.50 ± 0.48 | 0.57 ± 0.49 | 0.59 ± 0.49 |
