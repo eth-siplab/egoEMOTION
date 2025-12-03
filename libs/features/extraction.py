@@ -88,8 +88,8 @@ def split_data(data, fs_et, fs_data, session_label, task_times, dfs_all, partici
 
 
 # Load frames for Fisherfaces
-def get_frames(cfg_dataset, participant):
-    frames = np.load(f"{cfg_dataset['original_data_path']}/{participant}/et.npy", allow_pickle=True)
+def get_frames(cfg_features, participant):
+    frames = np.load(f"{cfg_features['original_data_path']}/{participant}/et.npy", allow_pickle=True)
     if len(frames.shape) == 3:
         frames = np.expand_dims(frames, axis=3)
     return frames
@@ -247,8 +247,8 @@ def _extract_single(participant,
     return participant, all_feats, feature_cols_per_mod, n_chunks
 
 
-def _load_frames_single(cfg_dataset, cfg_features, participant, session_label, tasks_times, dfs_all, subsample):
-    frames = get_frames(cfg_dataset, participant)
+def _load_frames_single(participant, cfg_dataset, cfg_features, session_label, tasks_times, dfs_all, subsample):
+    frames = get_frames(cfg_features, participant)
     frames_splits = split_data(frames, cfg_dataset['fs_all']['et'], cfg_dataset['fs_all']['et'], session_label,
                                tasks_times, dfs_all, participant, cfg_features['chunk_len'], subsample=subsample)
     return frames_splits[0], participant
@@ -280,9 +280,9 @@ def extract_features(cfg_dataset,
         tasks_times = np.load(f"{cfg_features['original_data_path']}/task_times.npy", allow_pickle=True).item()
         with ProcessPoolExecutor(max_workers=len(cfg_dataset['participants'])) as exe:
             futures = {exe.submit(_load_frames_single,
+                                  p,
                                   cfg_dataset,
                                   cfg_features,
-                                  p,
                                   session,
                                   tasks_times,
                                   dfs_all,

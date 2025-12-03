@@ -10,14 +10,14 @@ features: {
   # Wearable: ['ecg', 'eda', 'rr']
   # Glasses: ['pupils', 'ppg_nose', 'imu_right', 'intensity', 'fisherfaces', 'gaze', 'lbptop']
   # All: ['ecg', 'eda', 'rr', 'pupils', 'imu_right', 'intensity', 'fisherfaces', 'gaze', 'lbptop']
-  feature_modalities: ['ecg', 'eda', 'rr'],
+  feature_modalities: ['fisherfaces', 'rr'],
   do_new_feature_extraction: True,  # Whether to (re)extract features from raw signals (takes time)
-  do_new_fisherface_extraction: False,  # specified separately as it takes particularly long
+  do_new_fisherface_extraction: True,  # specified separately as it takes particularly long
   scaler_name: 'standard',  # standard, minmax (-1, 1), no_scaling
   per_session_scaling: True,  # Whether to fit the scaler per session or globally
   chunk_len: 'all',  # 'all', 'last_30', X (int in seconds): how signals are chunked for feature extraction
   thr_emo_binary: 0.1,  # threshold for binary emotion classification if emotion is present or not
-  n_jobs: 40  # number of parallel jobs for feature extraction
+  n_jobs: 1  # number of parallel jobs for feature extraction
 }
 
 model: {
