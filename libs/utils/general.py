@@ -125,3 +125,9 @@ def normalize(data, type_normalization):
         data = (data - np.min(data)) / (np.max(data) - np.min(data))
 
     return data
+
+def calculate_accuracy(y_pred, y):
+    # y_pred and y are numpy arrays
+    correct = (y_pred == y).sum()
+    acc = correct / y.shape[0]
+    return acc

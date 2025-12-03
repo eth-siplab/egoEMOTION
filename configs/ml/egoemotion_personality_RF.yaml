@@ -1,0 +1,27 @@
+# General configs
+prediction_target: 'personality'  # affect, emotion, personality
+session: 'A_and_B'  # A, B, A_and_B
+splitter_name: 'LOGO'  # LOGO, GKF (5 is set as default number of splits for GKF)
+
+features: {
+  original_data_path: '/local/home/bjbraun/Datasets/SynchronizedData/egoEMOTION',
+  preprocessed_data_path: '/local/home/bjbraun/Datasets/PreprocessedData/egoEMOTION',
+  # Choose any combination of the following features:
+  # Wearable: ['ecg', 'eda', 'rr']
+  # Glasses: ['pupils', 'ppg_nose', 'imu_right', 'intensity', 'fisherfaces', 'gaze', 'lbptop']
+  # All: ['ecg', 'eda', 'rr', 'pupils', 'imu_right', 'intensity', 'fisherfaces', 'gaze', 'lbptop']
+  feature_modalities: ['ecg', 'eda', 'rr'],
+  do_new_feature_extraction: False,  # Whether to (re)extract features from raw signals (takes time)
+  do_new_fisherface_extraction: False,  # specified separately as it takes particularly long
+  scaler_name: 'no_scaling',  # standard, minmax (-1, 1), no_scaling
+  per_session_scaling: True,  # Whether to fit the scaler per session or globally
+  chunk_len: 'all',  # 'all', 'last_30', X (int in seconds): how signals are chunked for feature extraction
+  thr_emo_binary: 0.1,  # threshold for binary emotion classification if emotion is present or not
+  n_jobs: 1  # number of parallel jobs for feature extraction
+}
+
+model: {
+  clf_name: 'RF',  # Classical ML models: RF, RbfSVM, xGB; DL models: WER, DCNN
+  feature_selection_method: 'mi',  # fisher, mi, pca, Null (no feature selection)
+  num_features: 10,  # number of features to select if feature_selection_method is not None
+}

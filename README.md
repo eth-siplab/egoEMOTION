@@ -31,27 +31,23 @@ conda env create -f environment.yml
 ```
 
 ## :file_folder: Code structure
-Everything is running using the *source/main.py* file. The usage of *main.py* is explained in the file itself. Currently, all variables are set in the *main.py* file. We plan to release an updated version with config.yaml files to enable cleaner experiment setups.
-At the moment, you can choose between different options for:
+Everything is running using the *main.py* file for which you have to specify the configuration .yaml files.
+The code is structured to allow easy experimentation with different model architectures, feature extraction methods, and input modalities.
+You can modify:
 
-1) Signal processing-based approaches: 6 different feature selection methods, 3 scaling methods, and 7 different classifiers.
+1) Signal processing-based approaches: different feature selection and feature scaling methods, and different classifiers.
 2) Deep learning-based approaches: 2 different architectures (one classical CNN and one transformer-based architecture).
 3) The prediction target: continuous affect (arousal, valence, dominance), discrete emotions, or personality.
 4) Choose the input modalities: ECG, EDA, RR, Pupils, IMU from the head, pixel intensity, Fisherfaces, micro-expressions, gaze, and nose PPG. You can flexibly combine these modalities.
 
-The AffectivePredictor class in *source/AffectivePredictor.py* contains all the methods for training and evaluating the models (deep learning-based and signal processing-based). The feature extraction methods are implemented in *source/sp_feature_calculation.py*. The deep learning architectures are implemented in *source/models/*.
-
 ## :zap: Training and inference
-To run the *main.py* file, go the source folder and then simply run:
+To run the *main.py* file, simply run the following command. The first input is the file containing all the information of the dataset (egoEMOTION) and the second input is the desired experiment configuration file.
 
 ```
-python -m main.py
+python -m main ./configs/config_egoemotion.yaml ./configs/ml/egoemotion_personality_RF.yaml
 ```
-All the variables are set in the *main.py* file and the configs chosen in the paper are also specified there.
 
-#### Important configs
-- *do_new_feature_extraction*: If set to True, features are calculated from the raw data. If set to False, pre-calculated features are loaded. You only have to run this once at the beginning.
-- *do_new_fisherface_extraction*: This is specified similarly to the feature extraction but for the Fisherface features (takes longer to compute).
+Important: Make sure to adjust all folder paths in the config files to your local setup.
 
 ## :bar_chart: Results for egoEMOTION
 | **Benchmark** | **Model**                                                         | **Wearable Devices** | **Egocentric Glasses** | **All** |

@@ -1,13 +1,15 @@
 # Configurations for general of video and bio-signals of egoPPG dataset
 
 # General parameters
-original_data_path: '/local/home/bjbraun/Datasets/SynchronizedData/egoEMOTION' # INSERT PATH TO THE DATASET PROVIDED IN THE PAPER
-preprocessed_data_path: '/local/home/bjbraun/Datasets/PreprocessedData/egoEMOTION' # INSERT PATH TO WHERE THE FEATURES SHOULD BE SAVED
+participants: ['005', '006', '007', '008', '009', '010', '011', '012', '013', '014', '015', '016', '017',
+               '018', '019', '021', '022', '023', '024', '025', '026', '027', '028', '029', '030', '031', '032',
+               '033', '034', '035', '036', '037', '038', '039', '040', '042', '043', '044', '045', '046']
 fs_all: {'et': 90, 'rgb': 10, 'imu_right': 1000, 'ecg': 1024, 'eda': 256, 'ppg_nose': 128, 'rr': 400, 'gaze': 90,
          'pupils': 90, 'intensity': 90, 'lbptop': 9}
 
 # Define personality and emotions
-personality_domains: ["Extraversion","Agreeableness", "Conscientiousness","Negative Emotionality",
+affect_domains: ["Arousal", "Valence", "Dominance"]
+personality_domains: ["Extraversion", "Agreeableness", "Conscientiousness", "Negative Emotionality",
                       "Open-Mindedness"]
 emotion_domains: ['Amused', 'Content', 'Excited', 'Awe', 'Neutral', 'Fear', 'Sad', 'Disgust', 'Anger']
 

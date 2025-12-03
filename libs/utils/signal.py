@@ -2,7 +2,7 @@ import numpy as np
 from PyEMD import EMD
 from scipy.signal import butter, lfilter, filtfilt, welch, find_peaks
 
-from utils import normalize
+from .general import normalize
 
 
 def fisher_idx(num, features, labels):
@@ -111,10 +111,3 @@ def pupil_filtering(pupil_data, fs, threshold=250, cutoff=0.5):
     pupil_data = filtfilt(b, a, pupil_data)
 
     return pupil_data
-
-
-def calculate_accuracy(y_pred, y):
-    # y_pred and y are numpy arrays
-    correct = (y_pred == y).sum()
-    acc = correct / y.shape[0]
-    return acc

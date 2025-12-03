@@ -1,0 +1,70 @@
+# General configs
+prediction_target: 'personality'  # affect, emotion, personality
+session: 'A_and_B'  # A, B, A_and_B
+splitter_name: 'GKF'  # LOGO, GKF (5 is set as default number of splits for GKF)
+
+features: {
+  original_data_path: '/local/home/bjbraun/Datasets/SynchronizedData/egoEMOTION',
+  preprocessed_data_path: '/local/home/bjbraun/Datasets/PreprocessedData/egoEMOTION',
+  # Choose any combination of the following features (Fisherfaces and lbptop not supported yet for DL):
+  # Wearable: ['ecg', 'eda', 'rr']
+  # Glasses: ['pupils', 'ppg_nose', 'imu_right', 'intensity', 'gaze', 'lbptop']
+  # All: ['ecg', 'eda', 'rr', 'pupils', 'imu_right', 'intensity', 'gaze', 'lbptop']
+  feature_modalities: ['ecg', 'eda', 'rr', 'pupils', 'imu_right', 'intensity', 'gaze'],
+  do_new_feature_extraction: False,  # Whether to (re)extract features from raw signals (takes time)
+  do_new_fisherface_extraction: False,  # specified separately as it takes particularly long
+  scaler_name: 'standard',  # standard, minmax (-1, 1), no_scaling
+  per_session_scaling: True,  # Whether to fit the scaler per session or globally
+  chunk_len: 20,  # 'all', 'last_30', X (int in seconds): how signals are chunked for feature extraction
+  thr_emo_binary: 0.1,  # threshold for binary emotion classification if emotion is present or not
+  n_jobs: 1  # number of parallel jobs for feature extraction
+}
+
+model: {
+  clf_name: 'WER',  # Classical ML models: RF, RbfSVM, xGB; DL models: WER, DCNN
+  feature_selection_method: Null,  # fisher, mi, pca, Null (no feature selection)
+}
+
+dl_general_cfg: {
+  mode: 'train_and_test',  # 'train_and_test' or 'only_test'
+  device: 'cuda:2',  # 'cuda:X' or 'cpu'
+  name_extension: '',
+  num_workers: 8,
+  log_path: '/local/home/bjbraun/Projects/egoEMOTION/runs',
+  pretrained_model_path: '/local/home/bjbraun/Projects/egoEMOTION/pretrained_models'
+}
+
+dl_model_cfg: {
+  tcn_nfilters: [16, 16],
+  tcn_kernel_size: 6,
+  tcn_dropout: 0.2,
+  trans_d_model: 128,
+  trans_n_heads: 4,
+  trans_num_layers: 1,
+  trans_dim_feedforward: 128,
+  shared_embed_dim: 64,
+  trans_dropout: 0.2,
+  trans_activation: 'relu',
+  trans_norm: 'LayerNorm',
+  sl_embed_dim1: 128,
+  sl_embed_dim2: 64,
+  sl_activation: 'relu',
+  sl_dropout: 0.2
+}
+
+dl_train_cfg: {
+  num_epochs: 30,
+  batch_size: 128,
+  lr: 0.0001,
+}
+
+dl_test_cfg: {
+  batch_size: 1,
+  best_epoch: Null,  # set to an integer to load a specific epoch from a pretrained DL model
+}
+
+dl_opt_cfg: {
+  opt_name: 'adam',  # adam or sgd
+  momentum: 0.9,
+  weight_decay: 0.0000005,
+}
