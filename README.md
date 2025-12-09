@@ -1,6 +1,6 @@
 ## egoEMOTION: Egocentric Vision and Physiological Signals for Emotion and Personality Recognition in Real-world Tasks (NeurIPS 2025)
 
-[Matthias Jammot](https://matthiasjammot.com)\*, [Björn Braun](https://bjoernbraun.com/)\*,[Paul Streli](https://paulstreli.com), Rafael Wampfler, [Christian Holz](https://www.christianholz.net)<br/>
+[Matthias Jammot](https://matthiasjammot.com)\*, [Björn Braun](https://bjoernbraun.com/)\*, [Paul Streli](https://paulstreli.com), Rafael Wampfler, [Christian Holz](https://www.christianholz.net)<br/>
 \* Equal contribution <br/>
 
 [Sensing, Interaction & Perception Lab](https://siplab.org), Department of Computer Science, ETH Zürich, Switzerland <br/>
