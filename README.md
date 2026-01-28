@@ -20,6 +20,10 @@ You have to sign a Data Transfer and Use Agreement (DTUA) form to agree to our t
 
 ![Sensors](assets/Figure_1_Sensors.png)
 
+## :crystal_ball: Data exploration and visualization
+In the folder *data_exploration*, you can find a simple script to visualize the different modalities of the egoEMOTION dataset.
+We have also provided a README file in the *data_exploration* folder that explains the data structure, naming conventions and individual faulty sensor recordings of the dataset.
+
 ## :wrench: Setup
 
 To create the environment that we used for our paper, simply run: 
